@@ -1,4 +1,7 @@
-<div class="modal-header">
+<!-- <div class="modal-header"> -->
 <h3>New Task</h3>
-</div>
-<%= render "form" %>
+<!-- </div> -->
+<%#= render "form" %>
+<%= form_for @task do %>
+  <%= f.text_field :name %>
+<% end %>

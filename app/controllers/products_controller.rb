@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
   def create
     @products = Product.all
     @product = Product.create(product_params)
+    flash.now[:notice] = "ようこそ。本日は#{Date.today}です。"
   end
 
   def edit

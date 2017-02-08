@@ -1,4 +1,5 @@
 AjaxExample::Application.routes.draw do
+  resources :memos
   resources :tasks do
     get "delete"
   end

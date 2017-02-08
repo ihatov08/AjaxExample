@@ -13,8 +13,20 @@ class TasksController < ApplicationController
   end
 
   def create
-    @tasks = Task.all
-    @task = Task.create(task_params)
+    respond_to do |format|
+      format.html {
+        @task = Task.new(task_params)
+        if @task.save
+          redirect_to tasks_path, success: 'succress create task'
+        else
+          render :new
+        end
+      }
+      format.js {
+        @tasks = Task.all
+        @task = Task.create(task_params)
+      }
+    end
   end
 
   def edit
@@ -25,7 +37,7 @@ class TasksController < ApplicationController
     @tasks = Task.all
     @task = Task.find(params[:id])
 
-    @task.update_attributes(Task_params)
+    @task.update_attributes(task_params)
   end
 
   def delete
