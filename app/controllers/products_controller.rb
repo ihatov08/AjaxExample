@@ -1,7 +1,8 @@
 class ProductsController < ApplicationController
-  
+
   def index
     @products = Product.all
+    @tasks = Task.all
   end
 
   def show
@@ -24,7 +25,7 @@ class ProductsController < ApplicationController
   def update
     @products = Product.all
     @product = Product.find(params[:id])
-    
+
     @product.update_attributes(product_params)
   end
 

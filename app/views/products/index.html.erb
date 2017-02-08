@@ -1,9 +1,10 @@
 <div class="container">
   <div class="well">
     <%= link_to "New Product", new_product_path, remote: true, class: "btn btn-primary" %>
+    <%= link_to 'New Task', new_task_path, remote: true, class: "btn btn-primary" %>
   </div>
   <div class="new-product"></div>
-  
+
   <table class="table table-bordered table-striped">
     <thead>
       <tr>
@@ -16,6 +17,10 @@
     <tbody class="product-index">
       <%= render "index" %>
     </tbody>
+    <tbody class="task-index">
+      <%= render "tasks/index" %>
+    </tbody>
   </table>
 </div>
 <div id="product-modal" class="modal fade"></div>
+<div id="task-modal" class="modal fade"></div>
